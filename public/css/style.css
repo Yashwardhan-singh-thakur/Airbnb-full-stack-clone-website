@@ -1,0 +1,241 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container-fluid {
+  flex: 1;
+}
+
+/* navbar */
+
+.navbar {
+  background-color: white;
+  height: 5rem;
+}
+
+.navbar-collapse {
+  background-color: white;
+}
+
+.fa-compass {
+  color: #f8495b;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222;
+}
+
+/* card  index.ejs*/
+.image {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-left: 0.4rem;
+}
+
+.card {
+  border: none;
+}
+
+.card-listing {
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+.card-text {
+  font-weight: 400;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #222222;
+}
+
+.card-img-overlay:hover {
+  background-color: white;
+  opacity: 0.2;
+}
+
+.listing-con {
+  margin: 0 1.5rem 0 1rem;
+}
+
+/* footer */
+footer {
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  background-color: black;
+  height: 5rem;
+  width: 95%;
+  flex-wrap: wrap;
+  background-color: #f7f7f7;
+  padding: 0.5rem 0 5rem 0;
+}
+
+.footer > div {
+  width: 100%;
+  text-align: center;
+}
+
+.social-media {
+  font-size: 1.25rem;
+}
+
+.social-media > span {
+  margin: 0.15rem;
+}
+
+.social-media > a {
+  color: black;
+  margin: 0 0.1rem 0 0.1rem;
+}
+
+.foot-link > ul > a {
+  text-decoration: none;
+  margin: 0.2rem;
+  color: #222222;
+}
+
+.foot-link > ul > a:hover {
+  text-decoration: underline;
+}
+
+/* button */
+
+.bnb-btn {
+  background-color: #f8495b;
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+
+.bnb-btn:hover {
+  background-color: #fa5666;
+  color: white;
+}
+
+.btn-con {
+  display: flex;
+}
+
+.del-btn {
+  margin-left: 1rem;
+  background-color: black;
+}
+
+/* show listing */
+.show-img {
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+/*  error.ejs */
+.alert i {
+  font-size: 1.25rem;
+}
+
+/* review show.ejs */
+
+/* .reviews {
+  margin-right: 1rem;
+} */
+
+.reviews {
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+}
+
+.review-del-btn {
+  font-size: small;
+  height: 1.5rem;
+  width: auto;
+  line-height: 0.5rem;
+  font-weight: 500;
+  background-color: black;
+}
+
+.review-del-btn:hover {
+  color: red;
+  background-color: black;
+}
+
+/* edit listing image style */
+.listingImage {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Nav bar search css */
+.search {
+  width: 35%;
+  border: 1px solid gray;
+  border-radius: 2rem;
+  box-shadow: 1px 1px 5px gray;
+  padding: 0.5rem;
+}
+
+#search-input,
+.search-btn {
+  padding: 0.5rem;
+  border-radius: 2rem;
+}
+
+#search-input {
+  width: 85%;
+  outline: none;
+  border: none;
+}
+
+.search-btn {
+  background-color: #f8495b;
+  color: white;
+  white-space: nowrap;
+}
+
+.search-btn:hover,
+.search-btn:active {
+  background-color: #fa5666;
+  color: white;
+}
+
+.hiden-search {
+  display: none;
+}
+
+.hiden-search2 {
+  display: inline;
+}
+
+.nav-link {
+  border-radius: 2rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+.nav-link:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+@media (max-width: 991px) {
+  .hiden-search {
+    display: inline;
+  }
+
+  .hiden-search2 {
+    display: none;
+  }
+}

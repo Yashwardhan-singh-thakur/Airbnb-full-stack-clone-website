@@ -1,0 +1,33 @@
+<% layout("layouts/boilerplate") %> <%- include("../includes/filters.ejs") %>
+<script>
+  let sliderIndex = "<%=sliderIdx%>";
+  console.log(sliderIndex);
+</script>
+<body>
+  <div
+    class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 listing-con"
+  >
+    <% for( let listing of listings) { %>
+    <div class="card col">
+      <a href="/listings/<%= listing._id %>" class="card-link">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top image"
+          alt="..."
+        />
+        <div class="card-body card-listing">
+          <p class="card-title"><b><%= listing.title %></b></p>
+
+          <p class="card-text">
+            <b> &#8377;<%= listing.price.toLocaleString('en-IN')%> </b>
+            <span>/ night</span>
+            <i id="taxerate" class="hidetaxes"> &nbsp; 18+ GST</i>
+          </p>
+          <div class="card-img-overlay"></div>
+        </div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+  <script src="/slider.js"></script>
+</body>

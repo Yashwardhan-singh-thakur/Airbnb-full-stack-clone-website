@@ -1,0 +1,155 @@
+.form-switch {
+  border: 1px solid rgb(187, 186, 186);
+  height: 3.5rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-left: 2rem;
+  white-space: nowrap;
+  border-radius: 1rem;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.slide i {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.slide a {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  font-weight: 500;
+  color: grey;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.slide a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.filters {
+  position: sticky;
+  top: 5rem;
+  z-index: 2;
+  background-color: white;
+}
+
+/* slider css */
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 72%;
+  margin-top: 0;
+  margin-left: 2rem;
+}
+
+.slider-container {
+  height: 5rem;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.slide {
+  color: rgba(0, 0, 0, 0.486);
+  width: auto;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 2px solid transparent;
+  display: flex;
+  justify-content: center;
+  margin-left: 1.5rem;
+  text-align: center;
+}
+
+.active {
+  padding: 1rem 0 1rem 0;
+  border-bottom: 2px solid gray;
+  opacity: 1;
+}
+
+.slide:hover {
+  border-bottom: 2px solid rgba(128, 128, 128, 0.603);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  height: 5rem;
+  width: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: white;
+  text-align: center;
+}
+
+.arr {
+  background: white;
+  border: 1px solid black;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+  line-height: 2.15rem;
+  text-align: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.arr:hover {
+  line-height: 2.4rem;
+  box-shadow: 2px 2px 5px gray;
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+.arrow.left {
+  left: 0px;
+}
+.arrow.right {
+  right: 0px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+}
+
+.hide-arrow {
+  /* display: none; */
+  visibility: hidden;
+}
+
+/* taxes box css */
+.form-switch {
+  border: 1px solid rgb(187, 186, 186);
+  height: 3.5rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-left: 2rem;
+  white-space: nowrap;
+  border-radius: 1rem;
+}
+
+.form-switch:hover {
+  border: 1px solid black;
+}
+
+.hidetaxes {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .form-switch {
+    display: none;
+  }
+
+  .slider {
+    width: 100%;
+  }
+}

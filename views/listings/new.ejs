@@ -1,0 +1,106 @@
+<% layout("layouts/boilerplate") %>
+<body>
+  <div class="row offset-md-2 mt-3">
+    <div class="col-12 col-md-10">
+      <form
+        method="post"
+        action="/listings"
+        class="needs-validation"
+        enctype="multipart/form-data"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            id="title"
+            class="form-control"
+            type="text"
+            placeholder="e.g: Heritage Haveli in Jaipur"
+            name="listing[title]"
+            required
+          />
+          <div class="valid-feedback">Title looks good!</div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            id="description"
+            class="form-control"
+            name="listing[description]"
+            placeholder="e.g:  Traditional 3-bedroom Haveli near Hawa Mahal with free Wi-Fi and breakfast."
+            required
+          ></textarea>
+          <div class="invalid-feedback">
+            Please provide a description (at least 10 characters).
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload image</label>
+          <input
+            id="image"
+            class="form-control"
+            type="file"
+            placeholder="e.g: https://example.com/heritage-haveli-jaipur.jpg"
+            name="listing[image]"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              id="price"
+              class="form-control"
+              type="number"
+              min="0"
+              placeholder="e.g: 2000"
+              name="listing[price]"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+          <div class="mb-3 col-md-8">
+            <label for="category" class="form-label">Category</label>
+            <select
+              name="listing[category]"
+              id="category"
+              class="form-select category-options"
+              required
+            ></select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-8">
+            <label for="location" class="form-label">Location</label>
+            <input
+              id="location"
+              class="form-control"
+              type="text"
+              placeholder="e.g: Jaipur, Rajasthan"
+              name="listing[location]"
+              required
+            />
+            <div class="invalid-feedback">Please provide a valid location.</div>
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="country" class="form-label">Country</label>
+            <input
+              id="country"
+              class="form-control"
+              type="text"
+              placeholder="e.g: India"
+              name="listing[country]"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid country.</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <button class="btn bnb-btn">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script></script>
+</body>
