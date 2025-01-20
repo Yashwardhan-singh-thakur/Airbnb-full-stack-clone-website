@@ -137,7 +137,7 @@
               method="post"
               action="/listings/<%=listing._id%>/review/<%=review._id%>?_method=DELETE"
             >
-            <%if(currUser._id.equals(review.author._id)) { %>
+            <%if(currUser && currUser._id.equals(review.author._id)) { %>
               <button class="btn btn-sm btn-dark review-del-btn">Delete</button>
            <% } %>
             </form>
