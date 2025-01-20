@@ -35,24 +35,25 @@ main()
   .catch((err) => console.log(err));
 
 // "mongodb://127.0.0.1:27017/airbnb";
+// process.env.DB_URL
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect("mongodb://127.0.0.1:27017/airbnb");
 }
 
 app.listen(port, () => {
   console.log("App is listening on port:", port);
 });
 
-const store = MongoStore.create({
-  mongoUrl: process.env.DB_URL,
-  crypto: {
-    secret: process.env.SECRET,
-  },
-  touchAfter: 24 * 3600,
-});
+// const store = MongoStore.create({
+//   mongoUrl: process.env.DB_URL,
+//   crypto: {
+//     secret: process.env.SECRET,
+//   },
+//   touchAfter: 24 * 3600,
+// });
 
 const sessionOptions = {
-  store,
+  // store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
@@ -63,9 +64,9 @@ const sessionOptions = {
   },
 };
 
-store.on("error", () => {
-  console.log("ERROR in MONGO SESSION STORE", err);
-});
+// store.on("error", () => {
+//   console.log("ERROR in MONGO SESSION STORE", err);
+// });
 
 app.use(session(sessionOptions));
 app.use(flash());
