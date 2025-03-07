@@ -1,4 +1,4 @@
-<% if (success && success.length) { %>
+<% if (locals.success && locals.success.length) { %>
 <div
   class="alert alert-success alert-dismissible fade show col-6 offset-3 mt-3"
 >
@@ -11,7 +11,7 @@
     aria-label="Close"
   ></button>
 </div>
-<% } %> <% if (error && error.length) { %>
+<% } %> <% if (locals.error && locals.error.length) { %>
 <div class="alert alert-danger alert-dismissible fade show col-6 offset-3 mt-3">
   <i class="fa-solid fa-triangle-exclamation me-1"></i>
   <%= error%>

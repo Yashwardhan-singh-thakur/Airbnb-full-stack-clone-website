@@ -26,7 +26,7 @@ let filters = [
 filters.forEach((filter) => {
   let newOption = document.createElement("option");
   newOption.innerText = filter;
-  newOption.value = value = filter;
+  newOption.value = filter;
   categoryOption.prepend(newOption);
 });
 

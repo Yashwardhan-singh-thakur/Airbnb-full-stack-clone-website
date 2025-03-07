@@ -34,7 +34,6 @@ main()
   .then(() => console.log("Connection succesfull"))
   .catch((err) => console.log(err));
 
-// "mongodb://127.0.0.1:27017/airbnb";
 async function main() {
   await mongoose.connect(process.env.DB_URL);
 }
@@ -79,6 +78,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  console.log(req.user);
   res.locals.currUser = req.user;
 
   next();
