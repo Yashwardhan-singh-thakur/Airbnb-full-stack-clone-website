@@ -38,10 +38,6 @@ async function main() {
   await mongoose.connect(process.env.DB_URL);
 }
 
-app.listen(port, () => {
-  console.log("App is listening on port:", port);
-});
-
 const store = MongoStore.create({
   mongoUrl: process.env.DB_URL,
   crypto: {
@@ -78,9 +74,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
-  console.log(req.user);
   res.locals.currUser = req.user;
-
   next();
 });
 
@@ -95,6 +89,9 @@ app.use("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "Something Went Wrong" } = err;
-  console.log(err);
   res.status(statusCode).render("./listings/error.ejs", { message });
+});
+
+app.listen(port, () => {
+  console.log("App is listening on port:", port);
 });

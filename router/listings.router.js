@@ -28,7 +28,7 @@ router
   );
 
 // Render new listing form.
-router.get("/new", isLoggedIn, listingsController.renderNewForm);
+router.route("/new").get(isLoggedIn, listingsController.renderNewForm);
 
 // Render listing category route
 router.get(

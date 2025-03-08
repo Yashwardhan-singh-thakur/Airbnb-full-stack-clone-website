@@ -3,7 +3,10 @@
     <a class="navbar-brand" href="/listings"
       ><i class="fa-regular fa-compass"></i
     ></a>
-    <div class="search hiden-search container-fluid me-3">
+    <div class="navbar-nav brandName">
+      <a class="nav-link" href="/listings">Explore</a>
+    </div>
+    <div class="search container-fluid me-3">
       <form class="d-flex" role="search">
         <input
           class="me-2 ms-4"
@@ -24,23 +27,8 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-      <div class="search ms-auto hiden-search2">
-        <form class="d-flex" role="search">
-          <input
-            class="me-2 ms-4"
-            id="search-input"
-            type="search"
-            placeholder="Search"
-          />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-          </button>
-        </form>
-      </div>
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
         <% if (!currUser) { %>

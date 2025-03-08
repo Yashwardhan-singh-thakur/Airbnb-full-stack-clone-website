@@ -212,14 +212,6 @@ footer {
   color: white;
 }
 
-.hiden-search {
-  display: none;
-}
-
-.hiden-search2 {
-  display: inline;
-}
-
 .nav-link {
   border-radius: 2rem;
   padding-left: 0.3rem;
@@ -231,11 +223,7 @@ footer {
 }
 
 @media (max-width: 991px) {
-  .hiden-search {
-    display: inline;
-  }
-
-  .hiden-search2 {
+  .brandName {
     display: none;
   }
 }

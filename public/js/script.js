@@ -24,10 +24,12 @@ let filters = [
 ];
 
 filters.forEach((filter) => {
-  let newOption = document.createElement("option");
-  newOption.innerText = filter;
-  newOption.value = filter;
-  categoryOption.prepend(newOption);
+  if (categoryOption) {
+    let newOption = document.createElement("option");
+    newOption.innerText = filter;
+    newOption.value = filter;
+    categoryOption.prepend(newOption);
+  }
 });
 
 // ********************* Bootstrap Validation code **************************
