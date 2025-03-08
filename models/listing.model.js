@@ -5,7 +5,6 @@ const User = require("./users.model.js");
 const { required } = require("joi");
 const { filters } = require("../utils/filters.js");
 const categoryList = filters.map((filter) => filter.filterName);
-console.log("cat", categoryList);
 
 const listingSchema = new Schema({
   title: {

@@ -27,6 +27,6 @@ router
   );
 
 // User logout router.
-router.get("/logout", userControllers.logout);
+router.route("/logout").get(userControllers.logout);
 
 module.exports = router;

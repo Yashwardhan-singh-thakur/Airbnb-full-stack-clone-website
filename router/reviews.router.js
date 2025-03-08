@@ -15,19 +15,17 @@ const reviewsControllers = require("../controllers/reviews.js");
 // Review Routing...................................
 
 // reviews post route
-router.post(
-  "/",
-  validateReview,
-  isLoggedIn,
-  wrapAsync(reviewsControllers.createReview)
-);
+router
+  .route("/")
+  .post(validateReview, isLoggedIn, wrapAsync(reviewsControllers.createReview));
 
 //  review delete route
-router.delete(
-  "/:reviewId",
-  isLoggedIn,
-  isReviewOwner,
-  wrapAsync(reviewsControllers.destroyReview)
-);
+router
+  .route("/:reviewId")
+  .delete(
+    isLoggedIn,
+    isReviewOwner,
+    wrapAsync(reviewsControllers.destroyReview)
+  );
 
 module.exports = router;
