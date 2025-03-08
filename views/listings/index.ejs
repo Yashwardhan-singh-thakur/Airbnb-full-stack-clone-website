@@ -1,15 +1,15 @@
 <% layout("layouts/boilerplate") %> <%- include("../includes/filters.ejs") %>
 <script>
   let sliderIndex = "<%=sliderIdx%>";
-  console.log(sliderIndex);
 </script>
+
 <body>
   <div
     class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 listing-con"
   >
     <% for( let listing of listings) { %>
     <div class="card col">
-      <a href="/listings/<%= listing._id %>" class="card-link">
+      <a href="/listing/<%= listing._id %>" class="card-link">
         <img
           src="<%= listing.image.url %>"
           class="card-img-top image"

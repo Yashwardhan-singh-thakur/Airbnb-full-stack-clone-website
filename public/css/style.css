@@ -13,6 +13,10 @@ body {
 
 /* navbar */
 
+.logoImg {
+  width: 3.5rem;
+}
+
 .navbar {
   background-color: white;
   height: 5rem;
@@ -76,8 +80,8 @@ footer {
 
 .footer {
   background-color: black;
-  height: 5rem;
   width: 95%;
+  height: 11rem;
   flex-wrap: wrap;
   background-color: #f7f7f7;
   padding: 0.5rem 0 5rem 0;
@@ -89,7 +93,7 @@ footer {
 }
 
 .social-media {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
 }
 
 .social-media > span {
@@ -181,11 +185,19 @@ footer {
 
 /* Nav bar search css */
 .search {
-  width: 35%;
+  width: 50%;
   border: 1px solid gray;
   border-radius: 2rem;
   box-shadow: 1px 1px 5px gray;
   padding: 0.5rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 992px) {
+  .search {
+    width: 100%;
+    margin: 0.5rem 0 0.5rem 0;
+  }
 }
 
 #search-input,
@@ -214,7 +226,6 @@ footer {
 
 .nav-link {
   border-radius: 2rem;
-  padding-left: 0.3rem;
   padding-right: 0.3rem;
 }
 
@@ -222,8 +233,38 @@ footer {
   background-color: rgba(128, 128, 128, 0.1);
 }
 
-@media (max-width: 991px) {
-  .brandName {
-    display: none;
+.brandName {
+  margin-left: -0.85rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+}
+
+.brandName a {
+  color: #e73648;
+  cursor: pointer;
+}
+
+.brandName a:hover {
+  background-color: transparent;
+  color: #e73648;
+}
+
+.fa-heart {
+  color: red;
+  font-size: 1rem;
+  animation: heartBeat 2s ease-in-out infinite;
+  width: 1.25rem;
+}
+
+@keyframes heartBeat {
+  0% {
+    font-size: 1rem;
+  }
+  50% {
+    font-size: 1.2rem;
+  }
+  100% {
+    font-size: 1rem;
   }
 }

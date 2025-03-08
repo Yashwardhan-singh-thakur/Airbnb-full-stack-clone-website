@@ -22,5 +22,4 @@ module.exports.filters = [
   { filterName: "Towers", iconClassName: "fa-solid fa-tower-observation" },
   { filterName: "Camper vans", iconClassName: "fa-solid fa-caravan" },
   { filterName: "Mountains", iconClassName: "fa-solid fa-mountain-sun" },
-  { filterName: "Hearts", iconClassName: "fa-solid fa-heart" },
 ];

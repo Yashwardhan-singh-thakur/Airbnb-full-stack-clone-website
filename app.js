@@ -26,6 +26,7 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public/Logo")));
 app.use(express.static(path.join(__dirname, "public/js")));
 app.use(express.static(path.join(__dirname, "public/css")));
 app.use(express.urlencoded({ extended: true }));
@@ -80,7 +81,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/listings", listingRouter);
+app.use("/", listingRouter);
 app.use("/listings/:id/review", reviewRouter);
 app.use("/", userRouter);
 

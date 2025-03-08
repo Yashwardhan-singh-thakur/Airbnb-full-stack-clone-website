@@ -4,12 +4,11 @@ const next = document.querySelector(".arrow.right");
 const prev = document.querySelector(".arrow.left");
 const taxeShow = document.querySelector(".form-check-input");
 const links = document.querySelectorAll(".slide a");
-
 let currentIndex = sliderIndex;
 let slideArrowEnd = 2;
 
 function arrowVisbilityFeatures() {
-  console.log(window.innerWidth);
+  // console.log(window.innerWidth);
   if (window.innerWidth <= 830) {
     slideArrowEnd = 6;
   } else if (window.innerWidth <= 982) {
@@ -39,7 +38,7 @@ function updateSlider() {
   slider.style.transition = `transform 0.5s ease-in-out`;
   slider.style.transform = `translateX(-${currentIndex * 40}%)`;
   arrowVisbilityFeatures();
-  console.log(currentIndex);
+  // console.log(currentIndex);
 }
 
 next.addEventListener("click", () => {
@@ -60,7 +59,7 @@ taxeShow.addEventListener("change", () => {
 });
 
 links.forEach((link) => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
     link.href = `${link.href}/${currentIndex}`;
   });
 });

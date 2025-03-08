@@ -21,7 +21,7 @@ module.exports.createNewListing = async (req, res) => {
   newListing.image = { url, filename };
   await newListing.save();
   req.flash("success", "New Listing Created!");
-  res.redirect("/listings");
+  res.redirect("/");
 };
 
 module.exports.showListing = async (req, res) => {
@@ -32,7 +32,7 @@ module.exports.showListing = async (req, res) => {
   if (!listing) {
     req.flash("error", "Listing you requested does not exist!");
     console.log("if triggring here.");
-    return res.redirect("/listings");
+    return res.redirect("/listing");
   }
   res.render("./listings/show.ejs", { listing });
 };
@@ -42,7 +42,7 @@ module.exports.renderEditForm = async (req, res) => {
   let listing = await Listing.findById(id);
   if (!listing) {
     req.flash("error", "Listing you requested for does not exists.");
-    return res.redirect("/listings");
+    return res.redirect("/listing");
   }
   res.render("./listings/edit.ejs", { listing });
 };
@@ -61,7 +61,16 @@ module.exports.editListing = async (req, res) => {
     runValidators: true,
   });
   req.flash("success", "Listing Updated!");
-  res.redirect(`/listings/${id}`);
+  res.redirect(`/listing/${id}`);
+};
+
+module.exports.category = async (req, res) => {
+  let { category, idx: sliderIdx } = req.params;
+  let listings = await Listing.find({ category: category });
+  res.render("./listings/index.ejs", {
+    listings,
+    sliderIdx,
+  });
 };
 
 module.exports.destroyListing = async (req, res) => {
@@ -71,5 +80,5 @@ module.exports.destroyListing = async (req, res) => {
     invalidate: true,
   });
   req.flash("success", "Listing Deleted!");
-  res.redirect(`/listings`);
+  res.redirect(`/`);
 };

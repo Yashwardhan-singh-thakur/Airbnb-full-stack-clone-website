@@ -1,7 +1,6 @@
 const User = require("../models/users.model.js");
 
 module.exports.renderSignupForm = (req, res) => {
-  console.log("hellow");
   res.render("users/signup.ejs");
 };
 
@@ -18,7 +17,7 @@ module.exports.signup = async (req, res) => {
         return next(err);
       }
       req.flash("success", "Welcome to Wanderlust", newUser.username);
-      let redirectUrl = res.locals.redirectUrl || "/listings";
+      let redirectUrl = res.locals.redirectUrl || "/";
       return res.redirect(redirectUrl);
     });
   } catch (err) {
@@ -36,7 +35,7 @@ module.exports.loggedIn = async (req, res) => {
     let { username } = req.body;
     req.flash("success", "Welcome to Wanderlust", username, "!");
     console.log(req.session.redirectUrl);
-    let redirectUrl = res.locals.redirectUrl || "/listings";
+    let redirectUrl = res.locals.redirectUrl || "/";
     res.redirect(redirectUrl);
   } catch (err) {
     req.flash("error", err.message);

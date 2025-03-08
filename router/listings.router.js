@@ -16,9 +16,11 @@ const { updateMany } = require("../models/reviews.model.js");
 const upload = multer({ storage });
 
 // showAllListing & post new listing routers.
+router.route("/").get(wrapAsync(listingsController.index));
+
+// create new listing route
 router
-  .route("/")
-  .get(wrapAsync(listingsController.index))
+  .route("/listing")
   .post(
     isLoggedIn,
     upload.single("listing[image]"),
@@ -28,20 +30,16 @@ router
   );
 
 // Render new listing form.
-router.route("/new").get(isLoggedIn, listingsController.renderNewForm);
+router.route("/listing/new").get(isLoggedIn, listingsController.renderNewForm);
 
 // Render listing category route
-router.route("/category/:category/:idx").get(
-  wrapAsync(async (req, res) => {
-    let { category, idx: sliderIdx } = req.params;
-    let listings = await Listing.find({ category: category });
-    res.render("./listings/index.ejs", { listings, sliderIdx });
-  })
-);
+router
+  .route("/listing/category/:category/:idx")
+  .get(wrapAsync(listingsController.category));
 
 //Show individual listing, editListing and deleteListing routers.
 router
-  .route("/:id")
+  .route("/listing/:id")
   .get(wrapAsync(listingsController.showListing))
   .put(
     isLoggedIn,
@@ -55,7 +53,7 @@ router
 
 // Render edit listing form.
 router.get(
-  "/:id/edit",
+  "/listing/:id/edit",
   isLoggedIn,
   isOwner,
   wrapAsync(listingsController.renderEditForm)
