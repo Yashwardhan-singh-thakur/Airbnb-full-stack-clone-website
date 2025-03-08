@@ -31,8 +31,7 @@ router
 router.route("/new").get(isLoggedIn, listingsController.renderNewForm);
 
 // Render listing category route
-router.get(
-  "/category/:category/:idx",
+router.route("/category/:category/:idx").get(
   wrapAsync(async (req, res) => {
     let { category, idx: sliderIdx } = req.params;
     let listings = await Listing.find({ category: category });
