@@ -1,106 +1,13 @@
 <div class="filters mb-3">
   <div class="slider ms-4">
     <div class="slider-container">
+      <% for(let filter of filters) {%>
       <div class="slide">
-        <a href="/listings/category/Trending" id="Trending">
-          <i class="fa-solid fa-fire" for="Trending"></i>Trending</a
+        <a href="/listings/category/<%= filter.filterName%>">
+          <i class="<%= filter.iconClassName %>"></i><%= filter.filterName%></a
         >
       </div>
-      <div class="slide">
-        <a href="/listings/category/Domes">
-          <i class="fa-solid fa-igloo"></i>Domes</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Rooms">
-          <i class="fa-solid fa-bed"></i>Rooms</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Farms">
-          <i class="fa-solid fa-cow"></i>Farms</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Amazing pools">
-          <i class="fa-solid fa-person-swimming"></i>Amazing pools</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/A-frames">
-          <i class="fa-solid fa-austral-sign"></i>A-frames</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Beachfront">
-          <i class="fa-solid fa-umbrella-beach"></i>Beachfront</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Creative spaces">
-          <i class="fa-solid fa-palette"></i>Creative spaces</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Earth homes">
-          <i class="fa-brands fa-pagelines"></i>Earth homes</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Artic">
-          <i class="fa-regular fa-snowflake"></i>Artic</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Castels">
-          <i class="fa-brands fa-fort-awesome"></i>Castels</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Bed&breakfast">
-          <i class="fa-solid fa-mug-hot"></i>Bed & Breakfast</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Camping">
-          <i class="fa-solid fa-tents"></i>Camping</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Boats">
-          <i class="fa-solid fa-sailboat"></i>Boats</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Houseboat">
-          <i class="fa-solid fa-ship"></i>Houseboat</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Golfing">
-          <i class="fa-solid fa-golf-ball-tee"></i>Golfing</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Sking"
-          ><i class="fa-solid fa-person-skiing"></i>Ski-in/out</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Towers">
-          <i class="fa-solid fa-tower-observation"></i>Towers</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Camper vans"
-          ><i class="fa-solid fa-caravan"></i>Camper vans</a
-        >
-      </div>
-      <div class="slide">
-        <a href="/listings/category/Mountains"
-          ><i class="fa-solid fa-mountain-sun"></i>Mountains</a
-        >
-      </div>
+      <%}%>
     </div>
     <div class="arrow left hide-arrow"><span class="arr">&lt;</span></div>
     <div class="arrow right"><span class="arr">&gt;</span></div>

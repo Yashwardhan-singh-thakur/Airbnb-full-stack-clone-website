@@ -74,9 +74,19 @@
               class="form-select category-options"
               required
             >
-              <option value="<%= listing.category %>">
+              <!-- <option value="<%= listing.category %>">
                 <%= listing.category %>
+              </option> -->
+              <% filters.forEach((filter) => {%> <% if(filter.filterName ===
+              listing.category) {%>
+              <option selected value="<%= filter.filterName %>">
+                <%= filter.filterName %>
               </option>
+              <% }else{ %>
+              <option value="<%=filter.filterName %>">
+                <%= filter.filterName %>
+              </option>
+              <%}%> <% }); %>
             </select>
           </div>
         </div>

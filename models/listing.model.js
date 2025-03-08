@@ -3,6 +3,9 @@ const { Schema } = mongoose;
 const Review = require("./reviews.model.js");
 const User = require("./users.model.js");
 const { required } = require("joi");
+const { filters } = require("../utils/filters.js");
+const categoryList = filters.map((filter) => filter.filterName);
+console.log("cat", categoryList);
 
 const listingSchema = new Schema({
   title: {
@@ -28,28 +31,7 @@ const listingSchema = new Schema({
   reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
   category: {
     type: String,
-    enum: [
-      "Trending",
-      "Domes",
-      "Rooms",
-      "Farms",
-      "Amazing pools",
-      "A-frames",
-      "Beachfront",
-      "Creative spaces",
-      "Earth homes",
-      "Artic",
-      "Castels",
-      "Bed&breakfast",
-      "Camping",
-      "Boats",
-      "Houseboat",
-      "Golfing",
-      "Skiing",
-      "Towers",
-      "Camper vans",
-      "Mountains",
-    ],
+    enum: categoryList,
   },
   geometry: {
     type: {

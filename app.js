@@ -15,6 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/users.model.js");
+const { filters } = require("./utils/filters.js");
 
 const listingRouter = require("./router/listings.router.js");
 const reviewRouter = require("./router/reviews.router.js");
@@ -75,6 +76,7 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
+  res.locals.filters = filters;
   next();
 });
 
