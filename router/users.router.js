@@ -4,7 +4,7 @@ const User = require("../models/users.model.js");
 const passport = require("passport");
 const WrapAsync = require("../utils/WrapAsync.js");
 const { redirectUrl } = require("../middlewares.js");
-const userControllers = require("../controllers/users.js");
+const userControllers = require("../controllers/usersController.js");
 
 // Sign up form render and created new user routers
 router

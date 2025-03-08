@@ -9,7 +9,7 @@ const {
   validateListing,
   forwardGedcoding,
 } = require("../middlewares.js");
-const listingsController = require("../controllers/listings.js");
+const listingsController = require("../controllers/listingsController.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
 const { updateMany } = require("../models/reviews.model.js");
