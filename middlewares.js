@@ -1,5 +1,5 @@
-const Listing = require("./models/listing.js");
-const Review = require("./models/reviews.js");
+const Listing = require("./models/listing.model.js");
+const Review = require("./models/reviews.model.js");
 const { reviewSchema } = require("./schema.js");
 const { listingSchema } = require("./schema.js");
 const axios = require("axios");

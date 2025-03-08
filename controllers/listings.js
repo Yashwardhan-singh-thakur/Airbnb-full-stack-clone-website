@@ -1,4 +1,4 @@
-const Listing = require("../models/listing.js");
+const Listing = require("../models/listing.model.js");
 const { cloudinary } = require("../cloudConfig.js");
 
 module.exports.index = async (req, res) => {

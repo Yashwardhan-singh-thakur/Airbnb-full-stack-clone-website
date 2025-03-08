@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const Review = require("./reviews.js");
-const User = require("./users.js");
+const Review = require("./reviews.model.js");
+const User = require("./users.model.js");
 const { required } = require("joi");
 
 const listingSchema = new Schema({

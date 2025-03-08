@@ -14,11 +14,11 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("./models/users.js");
+const User = require("./models/users.model.js");
 
-const listingRouter = require("./router/listings.js");
-const reviewRouter = require("./router/reviews.js");
-const userRouter = require("./router/users.js");
+const listingRouter = require("./router/listings.router.js");
+const reviewRouter = require("./router/reviews.router.js");
+const userRouter = require("./router/users.router.js");
 
 const port = 3000;
 app.engine("ejs", ejsMate);

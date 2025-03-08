@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const Listing = require("../models/listing.js");
+const Listing = require("../models/listing.model.js");
 const wrapAsync = require("../utils/WrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const {
@@ -12,7 +12,7 @@ const {
 const listingsController = require("../controllers/listings.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
-const { updateMany } = require("../models/reviews.js");
+const { updateMany } = require("../models/reviews.model.js");
 const upload = multer({ storage });
 
 // showAllListing & post new listing routers.
