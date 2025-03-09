@@ -254,7 +254,7 @@ footer {
   color: red;
   font-size: 1rem;
   animation: heartBeat 2s ease-in-out infinite;
-  width: 1.25rem;
+  width: 1.3rem;
 }
 
 @keyframes heartBeat {

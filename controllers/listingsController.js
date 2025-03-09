@@ -7,6 +7,7 @@ module.exports.index = async (req, res) => {
   res.render("./listings/index.ejs", {
     listings,
     sliderIdx,
+    category: "undefiend",
   });
 };
 
@@ -65,11 +66,12 @@ module.exports.editListing = async (req, res) => {
 };
 
 module.exports.category = async (req, res) => {
-  let { category, idx: sliderIdx } = req.params;
+  let { category = "undefiend", idx: sliderIdx } = req.params;
   let listings = await Listing.find({ category: category });
   res.render("./listings/index.ejs", {
     listings,
     sliderIdx,
+    category,
   });
 };
 

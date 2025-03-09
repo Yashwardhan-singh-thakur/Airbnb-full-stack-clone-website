@@ -154,10 +154,10 @@ body {
   }
 }
 
-/* .seletedFiter a {
+.seletedFiter a {
   color: rgb(0, 0, 0);
 }
 
 .seletedFiter {
   border-bottom: 2px solid rgba(128, 128, 128, 0.603);
-} */
+}

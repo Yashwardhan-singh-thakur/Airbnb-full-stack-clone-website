@@ -7,6 +7,9 @@ const links = document.querySelectorAll(".slide a");
 let currentIndex = sliderIndex;
 let slideArrowEnd = 2;
 
+let checkedFilter = selectedFilter;
+console.log(checkedFilter);
+
 function arrowVisbilityFeatures() {
   // console.log(window.innerWidth);
   if (window.innerWidth <= 830) {
@@ -62,4 +65,8 @@ links.forEach((link) => {
   link.addEventListener("click", (e) => {
     link.href = `${link.href}/${currentIndex}`;
   });
+  if (link.innerText === checkedFilter) {
+    let slide = link.parentNode;
+    slide.classList.add("seletedFiter");
+  }
 });
