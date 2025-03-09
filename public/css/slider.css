@@ -121,8 +121,7 @@ body {
 }
 
 .hide-arrow {
-  /* display: none; */
-  visibility: hidden;
+  display: none;
 }
 
 /* taxes box css */

@@ -13,7 +13,7 @@ module.exports.filters = [
     filterName: "Castles",
     iconClassName: "fa-brands fa-fort-awesome",
   },
-  { filterName: "Bed & Breakfast", iconClassName: "fa-solid fa-mug-hot" },
+  { filterName: "Bed and Breakfast", iconClassName: "fa-solid fa-mug-hot" },
   { filterName: "Camping", iconClassName: "fa-solid fa-tents" },
   { filterName: "Boats", iconClassName: "fa-solid fa-sailboat" },
   { filterName: "Houseboat", iconClassName: "fa-solid fa-ship" },

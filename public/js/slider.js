@@ -30,7 +30,6 @@ function arrowVisbilityFeatures() {
     prev.classList.remove("hide-arrow");
   }
 }
-
 window.addEventListener("load", () => {
   arrowVisbilityFeatures();
   slider.style.transition = `transform 0s steps()`;
