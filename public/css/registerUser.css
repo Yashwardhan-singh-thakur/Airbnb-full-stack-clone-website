@@ -1,0 +1,21 @@
+.google-logo-gradient {
+  background: linear-gradient(to bottom, #ea4335, #fbbc05, #34a853, #4285f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.bg-image-signup {
+  background-image: url("https://picsum.photos/467/627");
+}
+
+.bg-image-login {
+  background-image: url("https://picsum.photos/467/541");
+}
+
+@media (max-width: 991px) {
+  .bg-image-login,
+  .bg-image-signup {
+    background-image: url("https://picsum.photos/694/252");
+  }
+}

@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
 }
 
-.container-fluid {
+main {
   flex: 1;
 }
 
@@ -29,10 +29,6 @@ body {
 .fa-compass {
   color: #f8495b;
   font-size: 2rem;
-}
-
-.nav-link {
-  color: #222222;
 }
 
 /* card  index.ejs*/
@@ -81,7 +77,7 @@ footer {
 .footer {
   background-color: black;
   width: 95%;
-  height: 11rem;
+  height: 8rem;
   flex-wrap: wrap;
   background-color: #f7f7f7;
   padding: 0.5rem 0 5rem 0;
@@ -225,8 +221,10 @@ footer {
 }
 
 .nav-link {
+  color: #222222;
   border-radius: 2rem;
   padding-right: 0.3rem;
+  padding-left: 1rem;
 }
 
 .nav-link:hover {

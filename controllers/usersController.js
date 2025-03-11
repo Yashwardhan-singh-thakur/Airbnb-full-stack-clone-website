@@ -5,25 +5,20 @@ module.exports.renderSignupForm = (req, res) => {
 };
 
 module.exports.signup = async (req, res) => {
-  try {
-    let { username, email, password } = req.body;
-    let user = new User({
-      username,
-      email,
-    });
-    let newUser = await User.register(user, password);
-    req.login(newUser, function (err) {
-      if (err) {
-        return next(err);
-      }
-      req.flash("success", "Welcome to Wanderlust", newUser.username);
-      let redirectUrl = res.locals.redirectUrl || "/";
-      return res.redirect(redirectUrl);
-    });
-  } catch (err) {
-    req.flash("error", err.message);
-    res.redirect("/signup");
-  }
+  let { username, email, password } = req.body;
+  let user = new User({
+    username,
+    email,
+  });
+  let newUser = await User.register(user, password);
+  req.login(newUser, function (err) {
+    if (err) {
+      return next(err);
+    }
+    req.flash("success", "Welcome to Wanderlust", newUser.username);
+    let redirectUrl = res.locals.redirectUrl || "/";
+    return res.redirect(redirectUrl);
+  });
 };
 
 module.exports.renderLoginForm = (req, res) => {
@@ -31,16 +26,10 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.loggedIn = async (req, res) => {
-  try {
-    let { username } = req.body;
-    req.flash("success", "Welcome to Wanderlust", username, "!");
-    console.log(req.session.redirectUrl);
-    let redirectUrl = res.locals.redirectUrl || "/";
-    res.redirect(redirectUrl);
-  } catch (err) {
-    req.flash("error", err.message);
-    res.redirect("/login");
-  }
+  // let { username } = req.body;
+  req.flash("success", "Welcome to Wanderlust", req.user.username, "!");
+  let redirectUrl = res.locals.redirectUrl || "/";
+  res.redirect(redirectUrl);
 };
 
 module.exports.logout = (req, res, next) => {
@@ -51,4 +40,12 @@ module.exports.logout = (req, res, next) => {
     req.flash("success", "Successfully logged out!");
     res.redirect("/login");
   });
+};
+
+// google auth configration
+module.exports.googleAuthUserRegister = (req, res) => {
+  // Successful authentication, redirect home.
+  let redirectUrl = res.locals.redirectUrl || "/";
+  req.flash("success", "Welcome to Wanderlust", req.user.username, "!");
+  res.redirect(redirectUrl);
 };

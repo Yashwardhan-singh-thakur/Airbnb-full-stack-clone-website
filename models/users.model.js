@@ -8,6 +8,9 @@ const userSchema = Schema({
     type: String,
     required: true,
   },
+  googleId: {
+    type: String,
+  },
 });
 
 userSchema.plugin(passportLocalMongoose);

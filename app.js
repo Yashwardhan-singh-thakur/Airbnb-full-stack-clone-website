@@ -1,5 +1,9 @@
+let mongourl;
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
+  mongourl = "mongodb://127.0.0.1:27017/airbnb";
+} else {
+  mongoUrl = process.env.DB_URL;
 }
 
 const express = require("express");
@@ -16,6 +20,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/users.model.js");
 const { filters } = require("./utils/filters.js");
+const userControllers = require("./controllers/usersController.js");
+const GoogleStrategy = require("passport-google-oauth20").Strategy; /// Google Auth user register
 
 const listingRouter = require("./router/listings.router.js");
 const reviewRouter = require("./router/reviews.router.js");
@@ -37,11 +43,11 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect(mongourl);
 }
 
 const store = MongoStore.create({
-  mongoUrl: process.env.DB_URL,
+  mongoUrl: mongourl,
   crypto: {
     secret: process.env.SECRET,
   },
@@ -66,7 +72,32 @@ store.on("error", () => {
 
 app.use(session(sessionOptions));
 app.use(flash());
-
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/auth/google/callback",
+    },
+    async function (accessToken, refreshToken, profile, cb) {
+      try {
+        let newUser = await User.findOne({ googleId: profile.id });
+        if (!newUser) {
+          let user = new User({
+            username: profile.displayName,
+            email: profile.emails[0].value,
+            googleId: profile.id,
+          });
+          newUser = await User.register(user, profile.id);
+          await newUser.save();
+        }
+        return cb(null, newUser);
+      } catch (err) {
+        return cb(err, null);
+      }
+    }
+  )
+);
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -80,6 +111,11 @@ app.use((req, res, next) => {
   res.locals.filters = filters;
   next();
 });
+
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
 
 app.use("/", listingRouter);
 app.use("/listings/:id/review", reviewRouter);

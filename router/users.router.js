@@ -29,4 +29,18 @@ router
 // User logout router.
 router.route("/logout").get(userControllers.logout);
 
+//**************************************************************************** */
+
+// router
+//   .route("/auth/google")
+//   .get(passport.authenticate("google", { scope: ["profile"] }));
+
+router.route("/auth/google/callback").get(
+  redirectUrl,
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+  }),
+  WrapAsync(userControllers.googleAuthUserRegister)
+);
+
 module.exports = router;

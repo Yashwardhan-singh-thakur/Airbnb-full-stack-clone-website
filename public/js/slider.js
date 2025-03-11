@@ -8,10 +8,8 @@ let currentIndex = sliderIndex;
 let slideArrowEnd = 2;
 
 let checkedFilter = selectedFilter;
-console.log(checkedFilter);
 
 function arrowVisbilityFeatures() {
-  // console.log(window.innerWidth);
   if (window.innerWidth <= 830) {
     slideArrowEnd = 6;
   } else if (window.innerWidth <= 982) {
@@ -40,7 +38,6 @@ function updateSlider() {
   slider.style.transition = `transform 0.5s ease-in-out`;
   slider.style.transform = `translateX(-${currentIndex * 40}%)`;
   arrowVisbilityFeatures();
-  // console.log(currentIndex);
 }
 
 next.addEventListener("click", () => {
