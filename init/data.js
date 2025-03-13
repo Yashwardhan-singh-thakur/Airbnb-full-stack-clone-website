@@ -140,7 +140,7 @@ const data = [
     price: 1800,
     location: "Amsterdam",
     country: "Netherlands",
-    category: "Artic",
+    category: "Arctic",
   },
   {
     title: "Private Island Retreat",
@@ -153,7 +153,7 @@ const data = [
     price: 10000,
     location: "Fiji",
     country: "Fiji",
-    category: "Castels",
+    category: "Castles",
   },
   {
     title: "Charming Cottage in the Cotswolds",

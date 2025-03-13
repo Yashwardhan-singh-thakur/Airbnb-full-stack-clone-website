@@ -5,6 +5,7 @@
   height: 50px;
   cursor: pointer;
   perspective: 1000px; /* Enable 3D perspective for the rotation effect */
+  z-index: 10; /* Ensure it appears on top of other elements */
 }
 
 /* Marker Icon */
@@ -19,6 +20,7 @@
   text-align: center;
   line-height: 40px;
   transform-style: preserve-3d; /* Ensure 3D effect works */
+  transition: transform 0.6s ease-in-out; /* Smooth transition */
 }
 
 /* Airbnb Logo (Front) */
@@ -46,7 +48,7 @@
 }
 
 /* Hover Effect */
-.marker-icon:hover {
+.marker-wrapper:hover .marker-icon {
   transform: rotateY(
     180deg
   ); /* Rotate the entire marker icon to show the back face */

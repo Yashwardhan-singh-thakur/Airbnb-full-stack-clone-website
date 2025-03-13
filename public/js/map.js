@@ -29,10 +29,10 @@ const airbnbIcon = L.divIcon({
   className: "custom-marker",
   html: `
     <div class="marker-wrapper">
-      <div class="marker-icon">
-      <span class="airbnb-logo" ><i class="fa-brands fa-airbnb fa-lg"></i></span>
-      <span class="home-logo"><i class="fa-solid fa-house"></i></i></span>
-      </div>
+       <div class="marker-icon">
+         <span class="airbnb-logo" ><i class="fa-brands fa-airbnb fa-lg"></i></span>
+         <span class="home-logo"><i class="fa-solid fa-house"></i></i></span>
+       </div>
       <div class="marker-tooltip"><p class="marker-note">Exact location provided after booking.<p>
       <h4>${placeName}</h4></div>
     </div>

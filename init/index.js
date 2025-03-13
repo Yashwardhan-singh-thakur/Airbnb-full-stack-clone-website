@@ -1,9 +1,14 @@
+let mongoUrl;
+
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
+  mongoUrl = "mongodb://127.0.0.1:27017/airbnb";
+} else {
+  mongoUrl = process.env.DB_URL;
 }
 
 const mongoose = require("mongoose");
-const Listing = require("../models/listing.js");
+const Listing = require("../models/listing.model.js");
 let data = require("./data.js");
 const MongoStore = require("connect-mongo");
 
@@ -12,11 +17,11 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect(mongoUrl);
 }
 
 const store = MongoStore.create({
-  mongoUrl: process.env.DB_URL,
+  mongoUrl: mongoUrl,
   crypto: {
     secret: process.env.SECRET,
   },
@@ -27,7 +32,7 @@ const initDb = async () => {
   let listing = await Listing.deleteMany({});
   let geometry = { type: "Point", coordinates: [77.1025, 28.7041] };
   data = data.map((obj) => {
-    return { ...obj, owner: "678e193850341e4c48fdf362", geometry };
+    return { ...obj, owner: "67d292fffb605a80906261cc", geometry };
   });
   console.log(data);
   let lists = await Listing.insertMany(data);
