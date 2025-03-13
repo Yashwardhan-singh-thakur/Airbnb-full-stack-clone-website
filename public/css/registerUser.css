@@ -1,8 +1,10 @@
 .google-logo-gradient {
   background: linear-gradient(to bottom, #ea4335, #fbbc05, #34a853, #4285f4);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+  color: black; /* Fallback for browsers without support */
+  font-size: 1.15rem;
 }
 
 .bg-image-signup {
@@ -18,4 +20,13 @@
   .bg-image-signup {
     background-image: url("https://picsum.photos/694/252");
   }
+}
+
+.gAuthAnchor {
+  text-decoration: none;
+}
+
+.gAuth {
+  color: black;
+  font-size: 1rem;
 }
