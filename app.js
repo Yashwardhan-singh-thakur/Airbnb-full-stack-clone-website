@@ -112,11 +112,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
-);
-
 app.use("/", listingRouter);
 app.use("/listings/:id/review", reviewRouter);
 app.use("/", userRouter);
@@ -128,7 +123,7 @@ app.use("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "Something Went Wrong" } = err;
-  res.status(statusCode).render("./listings/error.ejs", { message });
+  return res.status(statusCode).render("./listings/error.ejs", { message });
 });
 
 app.listen(port, () => {

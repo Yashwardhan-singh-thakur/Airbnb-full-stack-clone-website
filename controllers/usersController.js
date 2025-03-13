@@ -15,7 +15,7 @@ module.exports.signup = async (req, res) => {
     if (err) {
       return next(err);
     }
-    req.flash("success", "Welcome to Wanderlust", newUser.username);
+    req.flash("success", `Welcome to Wanderlust ${req.user.username}!`);
     let redirectUrl = res.locals.redirectUrl || "/";
     return res.redirect(redirectUrl);
   });
@@ -27,7 +27,7 @@ module.exports.renderLoginForm = (req, res) => {
 
 module.exports.loggedIn = async (req, res) => {
   // let { username } = req.body;
-  req.flash("success", "Welcome to Wanderlust", req.user.username, "!");
+  req.flash("success", `Welcome to Wanderlust ${req.user.username}!`);
   let redirectUrl = res.locals.redirectUrl || "/";
   res.redirect(redirectUrl);
 };
@@ -46,6 +46,6 @@ module.exports.logout = (req, res, next) => {
 module.exports.googleAuthUserRegister = (req, res) => {
   // Successful authentication, redirect home.
   let redirectUrl = res.locals.redirectUrl || "/";
-  req.flash("success", "Welcome to Wanderlust", req.user.username, "!");
+  req.flash("success", `Welcome to Wanderlust ${req.user.username}!`);
   res.redirect(redirectUrl);
 };

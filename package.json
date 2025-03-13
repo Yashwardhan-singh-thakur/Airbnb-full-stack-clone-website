@@ -8,8 +8,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "nodemon --trace-deprecation app.js",
+    "start": "node --trace-deprecation app.js"
   },
   "author": "Yashwardhan singh thakur",
   "license": "ISC",
