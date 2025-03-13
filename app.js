@@ -1,7 +1,7 @@
-let mongourl;
+let mongoUrl;
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
-  mongourl = "mongodb://127.0.0.1:27017/airbnb";
+  mongoUrl = "mongodb://127.0.0.1:27017/airbnb";
 } else {
   mongoUrl = process.env.DB_URL;
 }
@@ -44,7 +44,7 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(mongourl);
+  await mongoose.connect(mongoUrl);
 }
 
 const store = MongoStore.create({
