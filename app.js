@@ -1,9 +1,13 @@
 let mongoUrl;
+let googleCallBackUrl;
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
   mongoUrl = "mongodb://127.0.0.1:27017/airbnb";
+  googleCallBackUrl = "/auth/google/callback";
 } else {
   mongoUrl = process.env.DB_URL;
+  googleCallBackUrl =
+    "https://airbnb-full-stack-clone-website.onrender.com/auth/google/callback";
 }
 
 const express = require("express");
@@ -78,7 +82,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL: googleCallBackUrl,
     },
     async function (accessToken, refreshToken, profile, cb) {
       try {
