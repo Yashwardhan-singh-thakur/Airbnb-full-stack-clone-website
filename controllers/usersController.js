@@ -26,7 +26,6 @@ module.exports.renderLoginForm = (req, res) => {
 };
 
 module.exports.loggedIn = async (req, res) => {
-  // let { username } = req.body;
   req.flash("success", `Welcome to Wanderlust ${req.user.username}!`);
   let redirectUrl = res.locals.redirectUrl || "/";
   res.redirect(redirectUrl);

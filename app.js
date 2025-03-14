@@ -24,9 +24,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/users.model.js");
 const { filters } = require("./utils/filters.js");
-const userControllers = require("./controllers/usersController.js");
 const GoogleStrategy = require("passport-google-oauth20").Strategy; // Google Auth
-const FacebookStrategy = require("passport-facebook").Strategy; // Facebook  Auth
 
 const listingRouter = require("./router/listings.router.js");
 const reviewRouter = require("./router/reviews.router.js");
