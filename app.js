@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== "production") {
 } else {
   mongoUrl = process.env.DB_URL;
   googleCallBackUrl =
-    "https://airbnb-full-stack-clone-website.onrender.com/auth/google/callback";
+    "https://airbnb-full-stack-clone-website-9d2r.onrender.com/auth/google/callback";
 }
 
 const express = require("express");
