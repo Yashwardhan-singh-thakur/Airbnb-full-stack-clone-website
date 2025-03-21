@@ -12,7 +12,6 @@ const {
 const listingsController = require("../controllers/listingsController.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
-const { updateMany } = require("../models/reviews.model.js");
 const upload = multer({ storage });
 
 // showAllListing & post new listing routers.
