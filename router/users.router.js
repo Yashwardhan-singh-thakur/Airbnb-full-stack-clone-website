@@ -2,14 +2,15 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const WrapAsync = require("../utils/WrapAsync.js");
-const { redirectUrl } = require("../middlewares.js");
+const { validateUser } = require("../middleware/validation.js");
+const { redirectUrl } = require("../middleware/middlewares.js");
 const userControllers = require("../controllers/usersController.js");
 
 // Sign up form render and created new user routers
 router
   .route("/signup")
   .get(userControllers.renderSignupForm)
-  .post(redirectUrl, WrapAsync(userControllers.signup));
+  .post(redirectUrl, validateUser, WrapAsync(userControllers.signup));
 
 //Login form render and user athentication and loggedin
 router

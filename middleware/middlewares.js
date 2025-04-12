@@ -1,24 +1,6 @@
-const Listing = require("./models/listing.model.js");
-const Review = require("./models/reviews.model.js");
-const { reviewSchema } = require("./schema.js");
-const { listingSchema } = require("./schema.js");
+const Listing = require("../models/listing.model.js");
+const Review = require("../models/reviews.model.js");
 const axios = require("axios");
-
-module.exports.validateListing = (req, res, next) => {
-  let { error } = listingSchema.validate(req.body);
-  if (error) {
-    throw new ExpressError(400, error.message);
-  }
-  return next();
-};
-
-module.exports.validateReview = (req, res, next) => {
-  let { error } = reviewSchema.validate(req.body);
-  if (error) {
-    throw new ExpressError(400, error.message);
-  }
-  return next();
-};
 
 // Authorization Middlewares
 module.exports.isLoggedIn = (req, res, next) => {
@@ -64,7 +46,6 @@ module.exports.forwardGedcoding = async (req, res, next) => {
       const key = process.env.MAP_API_KEY;
       let { location, country } = req.body.listing;
       let address = `${location} ${country}`;
-      console.log(address);
       let url = ` https://api.maptiler.com/geocoding/$%7B${address}%7D.json?key=${key}`;
       let result = await axios.get(url);
       let geometry = result.data.features[0].geometry;

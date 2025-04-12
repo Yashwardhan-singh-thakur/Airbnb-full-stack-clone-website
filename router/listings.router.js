@@ -1,14 +1,12 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const Listing = require("../models/listing.model.js");
+const { validateListing } = require("../middleware/validation.js");
 const wrapAsync = require("../utils/WrapAsync.js");
-const ExpressError = require("../utils/ExpressError.js");
 const {
   isLoggedIn,
   isOwner,
-  validateListing,
   forwardGedcoding,
-} = require("../middlewares.js");
+} = require("../middleware/middlewares.js");
 const listingsController = require("../controllers/listingsController.js");
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");

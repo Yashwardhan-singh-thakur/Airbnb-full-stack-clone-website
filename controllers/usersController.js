@@ -5,20 +5,28 @@ module.exports.renderSignupForm = (req, res) => {
 };
 
 module.exports.signup = async (req, res) => {
-  let { username, email, password } = req.body;
-  let user = new User({
-    username,
-    email,
-  });
-  let newUser = await User.register(user, password);
-  req.login(newUser, function (err) {
-    if (err) {
-      return next(err);
+  try {
+    let { username, email, password } = req.body;
+    let user = new User({
+      username,
+      email,
+    });
+    let newUser = await User.register(user, password);
+    req.login(newUser, function (err) {
+      if (err) {
+        return next(err);
+      }
+      req.flash("success", `Welcome to Wanderlust ${req.user.username}!`);
+      let redirectUrl = res.locals.redirectUrl || "/";
+      return res.redirect(redirectUrl);
+    });
+  } catch (err) {
+    if (err.name === "UserExistsError") {
+      req.flash("error", "A user with the given email is already registered.");
+      return res.redirect("/signup");
     }
-    req.flash("success", `Welcome to Wanderlust ${req.user.username}!`);
-    let redirectUrl = res.locals.redirectUrl || "/";
-    return res.redirect(redirectUrl);
-  });
+    throw err;
+  }
 };
 
 module.exports.renderLoginForm = (req, res) => {
