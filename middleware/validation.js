@@ -6,9 +6,12 @@ module.exports.validateListing = async (req, res, next) => {
   try {
     const { error } = listingSchema.validate(req.body);
     if (error) {
-      await cloudinary.uploader.destroy(req.file.filename, {
-        invalidate: true,
-      });
+      if (req.file && req.file.filename) {
+        await cloudinary.uploader.destroy(req.file.filename, {
+          invalidate: true,
+        });
+      }
+      console.log("validation error", error.message);
       throw new ExpressError(400, error.message);
     }
     return next();

@@ -10,7 +10,7 @@
   <h1><%= listing.username %></h1>
   <div class="container-fluid">
     <div class="row offset-lg-2">
-      <div class="card mb-3 col-12 col-lg-9">
+      <div class="card mb-3 col-12 col-lg-9" >
         <h3><%= listing.title %></h3>
         <img
           src="<%= listing.image.url %>"
@@ -27,7 +27,7 @@
         </div>
       </div>
       <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
-      <div class="col-8 btn-con">
+      <div class="col-8 btn-con" data-aos="fade-up">
         <a
           type="button"
           href="/listing/<%= listing._id%>/edit"
@@ -39,7 +39,7 @@
         </form>
       </div>
       <% } %> <% if (currUser) { %>
-      <div class="col-12 col-lg-9 row border-top">
+      <div class="col-12 col-lg-9 row border-top" data-aos="fade-up" >
         <div class="col-12"><h4 class="mt-4 mb-4">Leave a Review</h4></div>
         <form
           method="post"
@@ -115,13 +115,13 @@
         </form>
       </div>
       <% } %> <% if(listing.reviews.length) { %>
-      <div class="col-9 border-top">
+      <div class="col-9 border-top" data-aos="fade-up">
         <h4 class="mt-4 mb-2">All Reviews</h4>
       </div>
       <% } %>
       <div class="col-12 col-lg-9 row row-cols-1 row-cols-md-2">
         <% for( let review of listing.reviews) { %>
-        <div class="card col mt-3">
+        <div class="card col mt-3" data-aos="fade-up">
           <div class="card-body border reviews">
             <h6 class="card-title"><%= review.author.username %></h6>
             <p
@@ -144,7 +144,7 @@
         </div>
         <% } %>
       </div>
-      <div class="col-12 col-lg-9 mb-3 border-top mt-3 row">
+      <div class="col-12 col-lg-9 mb-3 border-top mt-3 row" data-aos="fade-up">
         <h4 class="mt-4 mb-3">Where you’ll be</h4>
         <p><%=listing.location%>, <%=listing.country%></p>
         <div id="map" class="ms-3 row-cols-12

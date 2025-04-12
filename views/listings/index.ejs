@@ -9,7 +9,11 @@
   >
     <% for( let listing of listings) { %>
     <div class="card col">
-      <a href="/listing/<%= listing._id %>" class="card-link">
+      <a
+        href="/listing/<%= listing._id %>"
+        class="card-link"
+        data-aos="fade-up"
+      >
         <img
           src="<%= listing.image.url %>"
           class="card-img-top image"

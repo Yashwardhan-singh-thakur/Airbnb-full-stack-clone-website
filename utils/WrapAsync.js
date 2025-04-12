@@ -1,7 +1,7 @@
 module.exports = (fn) => {
   return function (req, res, next) {
     fn(req, res, next).catch((err) => {
-      console.log(err);
+      console.log(err.message);
       return next(err);
     });
   };
