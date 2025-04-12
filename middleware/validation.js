@@ -20,9 +20,7 @@ module.exports.validateListing = async (req, res, next) => {
 module.exports.validateReview = (req, rres, next) => {
   const { error } = reviewSchema.validate(req.body);
   if (error) {
-    req.flash("error", error.message);
-    let { id } = req.params;
-    return res.redirect(`/listing/${id}`);
+    throw new ExpressError(422, error.message);
   }
   return next();
 };
@@ -30,8 +28,7 @@ module.exports.validateReview = (req, rres, next) => {
 module.exports.validateUser = (req, res, next) => {
   const { error } = userSchema.validate(req.body);
   if (error) {
-    req.flash("error", error.message);
-    return res.redirect("/signup");
+    throw new ExpressError(422, error.message);
   }
   return next();
 };

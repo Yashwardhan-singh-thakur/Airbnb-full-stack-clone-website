@@ -1,40 +1,5 @@
 <% layout("layouts/boilerplate") %>
 <body>
-  <!-- <form method="post" action="/login" class="needs-validation" novalidate>
-    <div class="container row">
-      <h1 class="col-6 offset-4">Log in to Wanderlust</h1>
-      <div class="col-6 mb-3 offset-4">
-        <label for="username" class="form-lable">Username</label>
-        <input
-          type="text"
-          placeholder="username"
-          class="form-control"
-          name="username"
-          id="username"
-          required
-        />
-      </div>
-      <div class="col-6 mb-3 offset-4">
-        <label for="password" class="form-lable">Password</label>
-        <input
-          type="password"
-          placeholder="Enter a strong password"
-          class="form-control"
-          name="password"
-          id="password"
-          required
-        />
-      </div>
-      <div class="col-6 offset-4">
-        <button class="btn btn-success">login</button>
-      </div>
-    </div>
-  </form>
-  <div class="mt-3 offset-4">
-    <a href="/auth/google">login using Google Account</a>
-  </div> -->
-
-  <!-- ******************************************************************************** -->
   <section class="gradient-form mt-2">
     <div class="rounded-1 container">
       <div class="row d-flex justify-content-center">
@@ -89,15 +54,18 @@
                       </button>
                     </div>
                     <div
-                      class="w-100 text-center mt-4 mb-4 d-flex justify-content-center"
+                      class="w-100 text-center my-4 d-flex justify-content-center"
                     >
                       <a
                         href="/auth/google/callback"
-                        class="px-3 border p-2 rounded-pill gAuthAnchor"
-                        ><i
-                          class="google-logo-gradient fa-brands fa-google text"
-                        ></i>
-                        <p class="ms-2 d-inline gAuth">Continue with Google</p>
+                        class="px-4 border py-2 rounded-pill gAuthAnchor w-75 hover:text-primary"
+                      >
+                        <img
+                          src="/google-logo.webp"
+                          alt="google-logo"
+                          width="32px"
+                        />
+                        <p class="ms-1 d-inline gAuth">Continue with Google</p>
                       </a>
                     </div>
                     <div

@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #e73648;
+  --btn-color: #f8495b;
+  --hover-color: #fa5666;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -24,11 +30,6 @@ main {
 
 .navbar-collapse {
   background-color: white;
-}
-
-.fa-compass {
-  color: #f8495b;
-  font-size: 2rem;
 }
 
 /* card  index.ejs*/
@@ -114,14 +115,14 @@ footer {
 /* button */
 
 .bnb-btn {
-  background-color: #f8495b;
+  background-color: var(--btn-color);
   color: white;
   font-weight: 500;
   border: none;
 }
 
 .bnb-btn:hover {
-  background-color: #fa5666;
+  background-color: var(--hover-color);
   color: white;
 }
 
@@ -171,6 +172,14 @@ footer {
   background-color: black;
 }
 
+.cmt-btn {
+  background-color: var(--btn-color);
+}
+
+.cmt-btn:hover {
+  background-color: var(--hover-color);
+}
+
 /* edit listing image style */
 .listingImage {
   width: 300px;
@@ -209,14 +218,14 @@ footer {
 }
 
 .search-btn {
-  background-color: #f8495b;
+  background-color: var(--btn-color);
   color: white;
   white-space: nowrap;
 }
 
 .search-btn:hover,
 .search-btn:active {
-  background-color: #fa5666;
+  background-color: var(--hover-color);
   color: white;
 }
 
@@ -224,7 +233,6 @@ footer {
   color: #222222;
   border-radius: 2rem;
   padding-right: 0.3rem;
-  padding-left: 1rem;
 }
 
 .nav-link:hover {
@@ -232,20 +240,19 @@ footer {
 }
 
 .brandName {
-  margin-left: -0.85rem;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
 }
 
 .brandName a {
-  color: #e73648;
+  color: var(--primary-color);
   cursor: pointer;
 }
 
 .brandName a:hover {
   background-color: transparent;
-  color: #e73648;
+  color: var(--primary-color);
 }
 
 .fa-heart {
