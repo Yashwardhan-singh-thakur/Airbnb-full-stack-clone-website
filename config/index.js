@@ -13,7 +13,7 @@ const config = {
   googleCallbackUrl:
     process.env.NODE_ENV !== "production"
       ? "/auth/google/callback"
-      : "https://airbnb-full-stack-clone-website-9d2r.onrender.com/auth/google/callback",
+      : "https://wanderlust-6nid.onrender.com/auth/google/callback",
 };
 
 module.exports = config;
